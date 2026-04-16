@@ -1,7 +1,7 @@
 # SdS-EMRI-dynamics
 Contains infrastructure in Mathematica in generating GW waveforms, and orbital trajectories of EMRIs in SdS spacetime
 
-# Extreme-Mass Ratio Inspirals in Schwarzschild-de Sitter Spacetimes
+# Extreme-Mass Ratio Inspirals in Schwarzschild-de Sitter Spacetimes (Weak-field)
 
 **Author:** John Adrian Villanueva (University of the Philippines Diliman)  
 **Associated Paper:** [arXiv:2602.17154](https://arxiv.org/abs/2602.17154) (Submitted to PRD)
@@ -12,6 +12,7 @@ This repository contains the Mathematica infrastructure used to compute weak-fie
 By modeling the effects of the cosmological constant on EMRI trajectories, this code provides a framework for analyzing environmental perturbations relevant to the upcoming LISA mission.
 
 ## Key Features
+* **Metric Formulation:** Exact analytical implementation of SdS metric perturbations.
 * **Trajectory Integration:** Highly optimized `NDSolve` routines capable of tracking orbital phase evolution.
 * **Waveform Extraction:** Modules to compute and visualize the resulting gravitational wave strain.
 
