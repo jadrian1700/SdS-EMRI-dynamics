@@ -1,6 +1,9 @@
 # SdS-EMRI-dynamics
 Contains infrastructure in Mathematica in generating GW waveforms, and orbital trajectories of EMRIs in SdS spacetime
 
+
+
+
 # Extreme-Mass Ratio Inspirals in Schwarzschild-de Sitter Spacetimes
 
 **Author:** John Adrian Villanueva (University of the Philippines Diliman)  
