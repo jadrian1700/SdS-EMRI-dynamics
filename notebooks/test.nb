@@ -1,0 +1,432 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     16563,        424]
+NotebookOptionsPosition[     13098,        362]
+NotebookOutlinePosition[     13496,        378]
+CellTagsIndexPosition[     13453,        375]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Exit", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.9854955389208527`*^9, 3.985495539715334*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"51bfac05-9437-8142-b2e6-3c552b94d726"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], ";"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"7fc70c8b-85c3-f241-8a01-ca2c4b149402"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"63f0900c-ff6a-d140-8288-9ffecb55808c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<WF_GWRR_SDS_Orbits.wl\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.9854957475091534`*^9, 3.9854957615507107`*^9}, 
+   3.9854967006860085`*^9, {3.9854967702324543`*^9, 3.985496772877905*^9}, {
+   3.9854968354221706`*^9, 3.985496838613455*^9}, {3.985496897333843*^9, 
+   3.9854969252937145`*^9}},
+ CellLabel->"In[55]:=",ExpressionUUID->"3ce46288-3818-9240-9482-ea8a6ab966ca"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Needs", "cxt", 
+   "\"Invalid context specified at position \\!\\(\\*RowBox[{\\\"1\\\"}]\\) \
+in \\!\\(\\*RowBox[{\\\"Needs\\\", \\\"[\\\", \
+\\\"\\\\\\\"WF_GWRR_SDS_Orbits.wl\\\\\\\"\\\", \\\"]\\\"}]\\). A context must \
+consist of valid symbol names separated by and ending with \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"`\\\\\\\"\\\"}]\\).\"", 2, 55, 9, 
+   26675621342184091405, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{
+  3.985496701701788*^9, 3.9854967735813656`*^9, {3.9854968154707794`*^9, 
+   3.9854968393956604`*^9}, {3.9854969021509705`*^9, 3.985496925826067*^9}},
+ CellLabel->
+  "During evaluation of \
+In[55]:=",ExpressionUUID->"a06d380a-6890-b44c-88d2-7ccb329a3632"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\<\"WF_GWRR_SDS_Orbits.wl\"\>", "]"}]], "Output",
+ CellChangeTimes->{
+  3.985496701701788*^9, 3.985496773584364*^9, {3.9854968154707794`*^9, 
+   3.9854968394037914`*^9}, {3.985496902153969*^9, 3.985496925826067*^9}},
+ CellLabel->"Out[55]=",ExpressionUUID->"59af38b9-e8ff-9e42-a59a-8a4697e45704"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "sol"}]], "Input",
+ CellChangeTimes->{{3.985495766702921*^9, 3.985495798840561*^9}, {
+  3.985495910154745*^9, 3.985495917353773*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"0c577eff-c650-3847-a576-567549488e09"],
+
+Cell[BoxData[
+ RowBox[{"Missing", "[", 
+  RowBox[{"\<\"UnknownSymbol\"\>", ",", "\<\"sol\"\>"}], "]"}]], "Output",
+ CellChangeTimes->{3.9854959187940445`*^9},
+ CellLabel->"Out[5]=",ExpressionUUID->"a934464b-2812-6441-a9b7-2e014535a1d3"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"1.", " ", "Clear", " ", "memory"}], "*)"}], "\[IndentingNewLine]",
+   "\n", 
+  RowBox[{"(*", 
+   RowBox[{
+   "2.", " ", "Set", " ", "working", " ", "directory", " ", "to", " ", 
+    "where", " ", 
+    RowBox[{"Comparative_Analysis", ".", "nb"}], " ", "is", " ", "saved"}], 
+   "*)"}], "\[IndentingNewLine]", "\n", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"3.", " ", "Load", " ", "your", " ", "custom", " ", "package"}], 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"<<", "\"\<../src/OrbitSolver.wl\>\""}], "\n", "\[IndentingNewLine]", 
+   RowBox[{
+   "Print", "[", "\"\<Orbit Solver loaded successfully!\>\"", 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.9854955433327885`*^9, 3.98549554758675*^9}, 
+   3.985495737060276*^9},ExpressionUUID->"9ddd1a4f-e6d4-814c-a1c9-\
+02b71c5a2c5a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "1.", " ", "Verify", " ", "where", " ", "Mathematica", " ", "thinks", " ", 
+    "we", " ", "are"}], "*)"}], 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<1. Current Working Directory: \>\"", ",", 
+      RowBox[{"Directory", "[", "]"}]}], "]"}], ";"}], "\n", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"2.", " ", "Build", " ", "the", " ", "exact"}], ",", 
+     RowBox[{
+     "bulletproof", " ", "path", " ", "to", " ", "the", " ", "package"}]}], 
+    "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"packagePath", "=", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"ParentDirectory", "[", 
+         RowBox[{"Directory", "[", "]"}], "]"}], ",", "\"\<source\>\"", 
+        ",", "\"\<WFSDSOrbits.wl\>\""}], "}"}], "]"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<2. I am looking for the package at: \>\"", ",", 
+      "packagePath"}], "]"}], ";"}], "\n", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"3.", " ", "THE", " ", "MOMENT", " ", "OF", " ", 
+     RowBox[{"TRUTH", ":", 
+      RowBox[{
+      "Does", " ", "Mathematica", " ", "actually", " ", "see", " ", "the", " ", 
+       RowBox[{"file", "?"}]}]}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Print", "[", 
+     RowBox[{"\"\<3. Does the file exist here? \>\"", ",", 
+      RowBox[{"FileExistsQ", "[", "packagePath", "]"}]}], "]"}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.985497267779127*^9, 3.985497301119272*^9}, 
+   3.985498058984724*^9},
+ CellLabel->"In[2]:=",ExpressionUUID->"5011cfdf-b6a8-eb4a-af0a-4728ed7820eb"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"1. Current Working Directory: \"\>", 
+   "\[InvisibleSpace]", "\<\"C:\\\\Users\\\\Adrian \
+Villanueva\\\\OneDrive\\\\Documents\\\\GitHub\\\\SdS-EMRI-dynamics\\\\\
+notebooks\"\>"}],
+  SequenceForm[
+  "1. Current Working Directory: ", 
+   "C:\\Users\\Adrian \
+Villanueva\\OneDrive\\Documents\\GitHub\\SdS-EMRI-dynamics\\notebooks"],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.9854972707166653`*^9, 3.985497302258465*^9}, {
+   3.985497803801674*^9, 3.9854978447314644`*^9}, {3.9854980361892395`*^9, 
+   3.98549805992379*^9}, 3.9854982737754917`*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"b394e761-d9cc-6647-841b-658bb89d4e24"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"2. I am looking for the package at: \"\>", 
+   "\[InvisibleSpace]", "\<\"C:\\\\Users\\\\Adrian \
+Villanueva\\\\OneDrive\\\\Documents\\\\GitHub\\\\SdS-EMRI-dynamics\\\\source\\\
+\\WFSDSOrbits.wl\"\>"}],
+  SequenceForm[
+  "2. I am looking for the package at: ", 
+   "C:\\Users\\Adrian \
+Villanueva\\OneDrive\\Documents\\GitHub\\SdS-EMRI-dynamics\\source\\\
+WFSDSOrbits.wl"],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.9854972707166653`*^9, 3.985497302258465*^9}, {
+   3.985497803801674*^9, 3.9854978447314644`*^9}, {3.9854980361892395`*^9, 
+   3.98549805992379*^9}, 3.9854982737754917`*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"d27a8cb2-d759-a44b-88dc-d1b3633973e1"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"3. Does the file exist here? \"\>", "\[InvisibleSpace]", 
+   "True"}],
+  SequenceForm["3. Does the file exist here? ", True],
+  Editable->False]], "Print",
+ CellChangeTimes->{{3.9854972707166653`*^9, 3.985497302258465*^9}, {
+   3.985497803801674*^9, 3.9854978447314644`*^9}, {3.9854980361892395`*^9, 
+   3.98549805992379*^9}, 3.9854982737754917`*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"0e5aa7b8-4f2c-5c48-9f14-f070bf66a19c"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Load", " ", "the", " ", "package", " ", "using", " ", "the", " ", 
+    "bulletproof", " ", "path", " ", "instead", " ", "of", " ", "<<"}], 
+   "*)"}], 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Get", "[", "packagePath", "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"Print", "[", "\"\<Package forcefully loaded!\>\"", "]"}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.9854978063899612`*^9, 3.9854978063899612`*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"8dd561c4-965a-824b-9274-b92ad83ce3e9"],
+
+Cell[BoxData["\<\"Package forcefully loaded!\"\>"], "Print",
+ CellChangeTimes->{3.9854978081185417`*^9, 3.985497846973839*^9},
+ CellLabel->
+  "During evaluation of \
+In[10]:=",ExpressionUUID->"bd3770d6-d98d-2043-aac8-cd7139b63584"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"Exit", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.985497324047615*^9, 3.9854973250755806`*^9}},
+ CellLabel->"In[14]:=",ExpressionUUID->"7f5d7897-16ac-7e43-a283-367e924f43c9"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.9854976070646954`*^9, 
+  3.985497610639929*^9}},ExpressionUUID->"5c1f5017-873b-8942-8d4b-\
+dc50518e0164"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"1.", " ", "Clear", " ", "memory"}], " ", "*)"}], "\n", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], ";"}], "\n", "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "2.", " ", "Set", " ", "working", " ", "directory", " ", "to", " ", 
+     "where", " ", 
+     RowBox[{"Comparative_Analysis", ".", "nb"}], " ", "is", " ", "saved"}], 
+    " ", "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"SetDirectory", "[", 
+     RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}], "\n", "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{"3.", " ", "Load", " ", "your", " ", "custom", " ", "package"}], 
+    " ", "*)"}], "\n", 
+   RowBox[{"<<", " ", "\"\<../source/WFSDSOrbits.wl\>\""}], "\n", "\n", 
+   RowBox[{
+   "Print", "[", "\"\<Orbit Solver loaded successfully!\>\"", 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.9854973433967514`*^9, 3.985497358876095*^9}, {
+  3.985498069539856*^9, 3.9854980877984867`*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"a3455bd3-6c99-7d46-bdcc-b0a4c45d246d"],
+
+Cell[BoxData["\<\"Orbit Solver loaded successfully!\"\>"], "Print",
+ CellChangeTimes->{
+  3.9854973634159317`*^9, 3.9854975696241436`*^9, 3.9854976217480755`*^9, 
+   3.985497710985018*^9, {3.985498071928631*^9, 3.985498088360798*^9}, 
+   3.9854982955942383`*^9},
+ CellLabel->
+  "During evaluation of \
+In[6]:=",ExpressionUUID->"fe9be9be-7a1d-9e4e-9654-2078edb86968"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"<<", "WFSdSOrbits`"}]], "Input",
+ CellChangeTimes->{{3.9854976233902493`*^9, 3.9854976449532394`*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"1a2f9780-d380-f246-957d-d3ca4e282530"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Get", "noopen", 
+   "\"Cannot open \\!\\(\\*RowBox[{\\\"\\\\\\\"WFSdSOrbits`\\\\\\\"\\\"}]\\).\
+\"", 2, 6, 1, 26675631875722832326, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.9854976469511833`*^9, 3.9854977188102646`*^9},
+ CellLabel->
+  "During evaluation of \
+In[6]:=",ExpressionUUID->"377c29c1-cec8-4b4d-9806-7de56cee33fb"],
+
+Cell[BoxData["$Failed"], "Output",
+ CellChangeTimes->{3.9854976469827995`*^9, 3.985497718828396*^9},
+ CellLabel->"Out[6]=",ExpressionUUID->"a0aaf48f-8a76-6840-9f2b-70a3849091bc"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sol", "[", "]"}], " "}]], "Input",
+ CellChangeTimes->{{3.985497571201809*^9, 
+  3.985497577361599*^9}},ExpressionUUID->"75c83f59-b04a-6944-8bf1-\
+70ff669f7455"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["sol"], "Input",
+ CellChangeTimes->{{3.9854973671177006`*^9, 3.98549737664896*^9}, 
+   3.9854978143424873`*^9},
+ CellLabel->"In[13]:=",ExpressionUUID->"9781beab-31ee-434c-a288-b9459df95c3d"],
+
+Cell[BoxData["sol"], "Output",
+ CellChangeTimes->{3.9854973773740177`*^9, 3.9854977159236794`*^9, 
+  3.9854978151860123`*^9},
+ CellLabel->"Out[13]=",ExpressionUUID->"2e9781c9-006b-6a4b-b8a6-475533e8e445"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"sol", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.9854973819678173`*^9, 
+  3.985497384725157*^9}},ExpressionUUID->"9f4f76ff-9bbf-314e-bedc-\
+0c67957dbfec"],
+
+Cell[BoxData[
+ RowBox[{"<<", " ", "\"\<../source/WF_GWRR_SDS_Orbits.wl\>\""}]], "Input",
+ CellLabel->"In[6]:=",ExpressionUUID->"96b0f9a0-8d46-124c-8920-1299faace1b0"],
+
+Cell[BoxData["wfsdsorb"], "Input",
+ CellChangeTimes->{{3.9854974812055016`*^9, 3.985497488420988*^9}, 
+   3.9854980941828575`*^9},ExpressionUUID->"d60b8aaa-6b00-3649-ac73-\
+8ad85b968b11"],
+
+Cell[BoxData[
+ RowBox[{"Exit", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.985498106537672*^9, 3.9854981074149895`*^9}},
+ CellLabel->"In[18]:=",ExpressionUUID->"0c09206b-d205-4b4f-aac6-1b41026be484"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Names", "[", "\"\<WFSdSOrbits`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.9854981225782967`*^9, 3.9854981484565277`*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"f0e98d0b-a42c-8f43-b900-1b4474605c7c"],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Output",
+ CellChangeTimes->{3.9854981494662075`*^9, 3.9854983010477295`*^9},
+ CellLabel->"Out[10]=",ExpressionUUID->"2f1db469-64f8-6445-867d-80f1d80f5044"]
+}, Open  ]]
+},
+WindowSize->{1140, 567.6},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"14.3 for Microsoft Windows (64-bit) (July 8, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"082d311f-5d99-9145-96a7-9e5e17cc9c2f"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 198, 3, 28, "Input",ExpressionUUID->"51bfac05-9437-8142-b2e6-3c552b94d726"],
+Cell[755, 25, 172, 3, 28, "Input",ExpressionUUID->"7fc70c8b-85c3-f241-8a01-ca2c4b149402"],
+Cell[930, 30, 201, 4, 28, "Input",ExpressionUUID->"63f0900c-ff6a-d140-8288-9ffecb55808c"],
+Cell[CellGroupData[{
+Cell[1156, 38, 415, 6, 28, "Input",ExpressionUUID->"3ce46288-3818-9240-9482-ea8a6ab966ca"],
+Cell[1574, 46, 743, 16, 26, "Message",ExpressionUUID->"a06d380a-6890-b44c-88d2-7ccb329a3632"],
+Cell[2320, 64, 333, 5, 32, "Output",ExpressionUUID->"59af38b9-e8ff-9e42-a59a-8a4697e45704"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2690, 74, 239, 4, 28, "Input",ExpressionUUID->"0c577eff-c650-3847-a576-567549488e09"],
+Cell[2932, 80, 236, 4, 32, "Output",ExpressionUUID->"a934464b-2812-6441-a9b7-2e014535a1d3"]
+}, Open  ]],
+Cell[3183, 87, 862, 21, 180, "Input",ExpressionUUID->"9ddd1a4f-e6d4-814c-a1c9-02b71c5a2c5a"],
+Cell[CellGroupData[{
+Cell[4070, 112, 1695, 43, 161, "Input",ExpressionUUID->"5011cfdf-b6a8-eb4a-af0a-4728ed7820eb"],
+Cell[CellGroupData[{
+Cell[5790, 159, 708, 16, 22, "Print",ExpressionUUID->"b394e761-d9cc-6647-841b-658bb89d4e24"],
+Cell[6501, 177, 750, 17, 22, "Print",ExpressionUUID->"d27a8cb2-d759-a44b-88dc-d1b3633973e1"],
+Cell[7254, 196, 503, 11, 22, "Print",ExpressionUUID->"0e5aa7b8-4f2c-5c48-9f14-f070bf66a19c"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7806, 213, 549, 14, 47, "Input",ExpressionUUID->"8dd561c4-965a-824b-9274-b92ad83ce3e9"],
+Cell[8358, 229, 231, 4, 22, "Print",ExpressionUUID->"bd3770d6-d98d-2043-aac8-cd7139b63584"]
+}, Open  ]],
+Cell[8604, 236, 199, 3, 28, "Input",ExpressionUUID->"7f5d7897-16ac-7e43-a283-367e924f43c9"],
+Cell[8806, 241, 154, 3, 28, "Input",ExpressionUUID->"5c1f5017-873b-8942-8d4b-dc50518e0164"],
+Cell[CellGroupData[{
+Cell[8985, 248, 1057, 25, 199, "Input",ExpressionUUID->"a3455bd3-6c99-7d46-bdcc-b0a4c45d246d"],
+Cell[10045, 275, 366, 7, 22, "Print",ExpressionUUID->"fe9be9be-7a1d-9e4e-9654-2078edb86968"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10448, 287, 204, 3, 28, "Input",ExpressionUUID->"1a2f9780-d380-f246-957d-d3ca4e282530"],
+Cell[10655, 292, 399, 10, 26, "Message",ExpressionUUID->"377c29c1-cec8-4b4d-9806-7de56cee33fb"],
+Cell[11057, 304, 178, 2, 32, "Output",ExpressionUUID->"a0aaf48f-8a76-6840-9f2b-70a3849091bc"]
+}, Open  ]],
+Cell[11250, 309, 195, 5, 28, "Input",ExpressionUUID->"75c83f59-b04a-6944-8bf1-70ff669f7455"],
+Cell[CellGroupData[{
+Cell[11470, 318, 203, 3, 28, "Input",ExpressionUUID->"9781beab-31ee-434c-a288-b9459df95c3d"],
+Cell[11676, 323, 204, 3, 32, "Output",ExpressionUUID->"2e9781c9-006b-6a4b-b8a6-475533e8e445"]
+}, Open  ]],
+Cell[11895, 329, 179, 4, 28, "Input",ExpressionUUID->"9f4f76ff-9bbf-314e-bedc-0c67957dbfec"],
+Cell[12077, 335, 166, 2, 28, "Input",ExpressionUUID->"96b0f9a0-8d46-124c-8920-1299faace1b0"],
+Cell[12246, 339, 187, 3, 28, "Input",ExpressionUUID->"d60b8aaa-6b00-3649-ac73-8ad85b968b11"],
+Cell[12436, 344, 199, 3, 28, "Input",ExpressionUUID->"0c09206b-d205-4b4f-aac6-1b41026be484"],
+Cell[CellGroupData[{
+Cell[12660, 351, 227, 3, 28, "Input",ExpressionUUID->"f0e98d0b-a42c-8f43-b900-1b4474605c7c"],
+Cell[12890, 356, 192, 3, 51, "Output",ExpressionUUID->"2f1db469-64f8-6445-867d-80f1d80f5044"]
+}, Open  ]]
+}
+]
+*)
+
