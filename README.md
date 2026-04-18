@@ -1,5 +1,5 @@
 # SdS-EMRI-dynamics
-Contains infrastructure in Mathematica in generating GW waveforms, and orbital trajectories of EMRIs in SdS spacetime
+Contains infrastructure in Mathematica generating GW waveforms, and orbital trajectories of EMRIs under radiation reaction in SdS spacetime
 
 # Extreme-Mass Ratio Inspirals in Schwarzschild-de Sitter Spacetimes (Weak-field)
 
