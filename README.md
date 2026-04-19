@@ -12,7 +12,7 @@ This repository contains the Mathematica infrastructure used to compute weak-fie
 By modeling the effects of the cosmological constant on EMRI trajectories, this code provides a framework for analyzing environmental perturbations relevant to the upcoming LISA mission.
 
 ## Key Features
-* **Metric Formulation:** Exact analytical implementation of SdS metric perturbations.
+* **Conservative Dynamics:** Exact analytical implementation of SdS metric onto conservative geodesics of test particles.
 * **Trajectory Integration:** Highly optimized `NDSolve` routines capable of tracking orbital phase evolution.
 * **Waveform Extraction:** Modules to compute and visualize the resulting gravitational wave strain.
 
@@ -20,6 +20,7 @@ By modeling the effects of the cosmological constant on EMRI trajectories, this 
 * `/notebooks`: The core Mathematica (`.nb`) files used for the derivations and numerical integration.
 * `/readable_code`: **PDF exports of all notebooks.** (Recommended for quick browser viewing of equations, code, and plots without needing Mathematica).
 * `/plots`: High-resolution figures generated for the manuscript.
+* `/source: Packages of native functions used inside notebooks.
 
 ## How to Run
 1. Clone this repository to your local machine.
