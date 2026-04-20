@@ -20,7 +20,7 @@ By modeling the effects of the cosmological constant on EMRI trajectories, this 
 * `/notebooks`: The core Mathematica (`.nb`) files used for the derivations and numerical integration.
 * `/readable_code`: **PDF exports of all notebooks.** (Recommended for quick browser viewing of equations, code, and plots without needing Mathematica).
 * `/plots`: High-resolution figures generated for the manuscript.
-* `/source: Packages of native functions used inside notebooks.
+* `/source`: Packages of native functions used inside notebooks.
 
 ## How to Run
 1. Clone this repository to your local machine.
