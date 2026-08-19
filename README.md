@@ -4,7 +4,7 @@ Contains infrastructure in Mathematica generating GW waveforms, and orbital traj
 # Extreme-Mass Ratio Inspirals in Schwarzschild-de Sitter Spacetimes (Weak-field)
 
 **Author:** John Adrian Villanueva (University of the Philippines Diliman)  
-**Associated Paper:** [arXiv:2602.17154](https://arxiv.org/abs/2602.17154) (Submitted to PRD)
+**Associated Paper:**(https://doi.org/10.1103/npk4-61t8)
 
 ## Overview
 This repository contains the Mathematica infrastructure used to compute weak-field orbital dynamics and extract gravitational waveforms for extreme-mass ratio inspirals (EMRIs) in Schwarzschild-de Sitter backgrounds. 
