@@ -2,17 +2,22 @@
 
 BeginPackage["WFSdSOrbits`"];
 
-sol::usage="sol[p0_,e0_,y_]computes the evolution of osculating elements (p,e,f,\[Delta]) for initial p and e, for a given lambda";
-wfsdsorb::usage= "wfsdsorb[p0_,e0_,y0_,tf0_] plots the SdS orbit vs a reference PN y=0 orbit";
+sol::usage="sol[p0,e0,y] computes the evolution of osculating elements (p,e,f,\[Delta]) for initial p0 and e0, for a given SdS parameter y";
+wfsdsorb::usage= "wfsdsorb[p0,e0,y0,tf0] plots the SdS orbit (for a given y0) vs a reference 2.5PN y=0 orbit, with fixed (p0, e0) up to time tf0";
+wfsdsgwplot::usage="wfsdsgwplot[p0_,e0_,y0_,tf0_] plots the plus and cross polarization";
+wfsdsgwplusplot::usage="wfsdsgwplusplot[p0_,e0_,y0_,tf0_] plots the plus polarization";
+wfsdsgwcrossplot::usage="wfsdsgwcrossplot[p0_,e0_,y0_,tf0_] plots the cross polarization";
 p::usage="semilatus rectum evolution"
 e::usage="eccentricity evolution"
 f::usage="true anomaly evolution"
 \[Delta]::usage="periapsis evolution"
 t::usage="time input in functions"
-xposevo::usage="xposevo[p0_,e0_,y_,t_] computes x position of emri at time t"
-yposevo::usage="yposevo[p0_,e0_,y_,t_] cmputes y position of emri at time t"
 xpos::usage="xpos computes x position of emri at time t"
 ypos::usage="ypos computes y position of emri at time t"
+hplus::usage="hplus[x0] analytically derives the pN plus polarization at time x0 in terms of rates of orbital parameter evolution "
+hcross::usage="hcross[x0] analytically derives the pN cross polarization at time x0 in terms of rates of orbital parameter evolution "
+hplusSdS::usage="hplusSdS[y,x0] analytically derives the SdS (for a given y) plus polarization at time x0 in terms of rates of orbital parameter evolution "
+hcrossSdS::usage="hcross[y,x0] analytically derives the SdS (for a given y) cross polarization at time x0 in terms of rates of orbital parameter evolution "
 
 Begin["`Private`"];
 
@@ -37,10 +42,11 @@ eInit=e0;
 yInit=y;
 NDSolve[{p'[t]==pdot[p[t],e[t],y],e'[t]==edot[p[t],e[t],y],f'[t]==fdot[p[t],e[t],f[t],y],\[Delta]'[t]==deldot[p[t],e[t],f[t],y],f[0]==0,e[0]==eInit,p[0]==pInit,\[Delta][0]==0, WhenEvent[p[t]==6+2e[t],"StopIntegration"](*stop at near separatrix*)},{p,e,f,\[Delta]},{t,0,10^6(*cycles*)}][[1]]];
 
-(*x and y position of particle*)
-
-xposevo[p0_,e0_,y_,t_]:=p[t]/(1+e[t]Cos[f[t]]) Cos[f[t]+\[Delta][t]]/.sol[p0,e0,y];
-yposevo[p0_,e0_,y_,t_]:=p[t]/(1+e[t]Cos[f[t]]) Sin[f[t]+\[Delta][t]]/.sol[p0,e0,y];
+(*hplus and hcross*)
+hplus[x0_]:=Evaluate[D[xpos[t]^2-ypos[t]^2,{t,2}]]/.t->x0
+hcross[x0_]:=Evaluate[D[2xpos[t]ypos[t],{t,2}]]/.t->x0
+hplusSdS[y_,x0_]:=Evaluate[D[xpos[t]^2-ypos[t]^2,{t,2}]]+2Sqrt[y]D[xpos[t]^2-ypos[t]^2,{t,1}]/.t->x0
+hcrossSdS[y_,x0_]:=Evaluate[D[2xpos[t]ypos[t],{t,2}]]+2 Sqrt[y]/3 D[2xpos[t]ypos[t],{t,1}]/.t->x0
 
 
 (*plotter*)
@@ -61,6 +67,42 @@ LabelStyle->style,FrameLabel->{MaTeX["r(\\psi) \\cos(\\phi)"],MaTeX["r(\\psi) \\
 Epilog->{{PointSize->0.015,RGBColor[0.06274509803921569, 0.25882352941176473`, 0.5137254901960784],
 Point[{Evaluate[xpos[tf0]/.sol[p0,e0,0]],Evaluate[ypos[tf0]/.sol[p0,e0,0]]}]},{PointSize->0.015,RGBColor[0.7450980392156863, 0.06666666666666667, 0.00392156862745098],Point[{Evaluate[xpos[tf0]/.sol[p0,e0,y0]],Evaluate[ypos[tf0]/.sol[p0,e0,y0]]}]}},
 PlotLegends->Placed[{MaTeX["\\lambda=0"],MaTeX["\\lambda="]TraditionalForm[y0//N]},{Left,Bottom}]]];
+
+
+wfsdsgwplot[p0_,e0_,y0_,tf0_]:=Module[{tf,p,e,y},
+p=p0;
+e=p0;
+y=y0;
+tf=tf0;
+Plot[{Evaluate[hplus[t]/.sol[p0,e0,0]],Evaluate[hcross[t]/.sol[p0,e0,0]]},{t,0,tf0},
+Frame->True,AspectRatio->1/4,ImageSize->1000,PlotRange->{Automatic,Full},
+LabelStyle->style,FrameLabel->{MaTeX["t"],MaTeX["h"]},
+PlotLegends->Placed[{MaTeX["h_+"],MaTeX["h_\\times"]},{Left,Bottom}]]];
+
+wfsdsgwplusplot[p0_,e0_,y0_,tf0_]:=Module[{tf,p,e,y},
+p=p0;
+e=p0;
+y=y0;
+tf=tf0;
+Plot[{Evaluate[hplus[t]/.sol[p0,e0,0]],Evaluate[hplusSdS[y,t]/.sol[p0,e0,y]]},{t,0,tf0},
+Frame->True,AspectRatio->1/4,ImageSize->1000,PlotRange->{Automatic,Full},
+LabelStyle->style,FrameLabel->{MaTeX["t"],MaTeX["h_+"]},
+PlotStyle->{{Dashed,Thick,RGBColor[0.06274509803921569, 0.25882352941176473`, 0.5137254901960784]},
+{Thick,RGBColor[0.7450980392156863, 0.06666666666666667, 0.00392156862745098]}},
+PlotLegends->Placed[{MaTeX["\\lambda=0"],MaTeX["\\lambda="]TraditionalForm[y0//N]},{Left,Bottom}]]];
+
+wfsdsgwcrossplot[p0_,e0_,y0_,tf0_]:=Module[{tf,p,e,y},
+p=p0;
+e=p0;
+y=y0;
+tf=tf0;
+Plot[{Evaluate[hcross[t]/.sol[p0,e0,0]],Evaluate[hcrossSdS[y,t]/.sol[p0,e0,y]]},{t,0,tf0},
+Frame->True,AspectRatio->1/4,ImageSize->1000,PlotRange->{Automatic,Full},LabelStyle->style,
+FrameLabel->{MaTeX["t"],MaTeX["h_\\times"]},
+PlotStyle->{{Dashed,Thick,RGBColor[0.06274509803921569, 0.25882352941176473`, 0.5137254901960784]},
+{Thick,RGBColor[0.7450980392156863, 0.06666666666666667, 0.00392156862745098]}},
+PlotLegends->Placed[{MaTeX["\\lambda=0"],MaTeX["\\lambda="]TraditionalForm[y0//N]},{Left,Bottom}]]];
+
 
 End[];
 EndPackage[];
