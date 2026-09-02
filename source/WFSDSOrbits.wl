@@ -4,9 +4,9 @@ BeginPackage["WFSdSOrbits`"];
 
 sol::usage="sol[p0,e0,y] computes the evolution of osculating elements (p,e,f,\[Delta]) for initial p0 and e0, for a given SdS parameter y";
 wfsdsorb::usage= "wfsdsorb[p0,e0,y0,tf0] plots the SdS orbit (for a given y0) vs a reference 2.5PN y=0 orbit, with fixed (p0, e0) up to time tf0";
-wfsdsgwplot::usage="wfsdsgwplot[p0_,e0_,y0_,tf0_] plots the plus and cross polarization";
-wfsdsgwplusplot::usage="wfsdsgwplusplot[p0_,e0_,y0_,tf0_] plots the plus polarization";
-wfsdsgwcrossplot::usage="wfsdsgwcrossplot[p0_,e0_,y0_,tf0_] plots the cross polarization";
+wfsdsgwplot::usage="wfsdsgwplot[p0_,e0_,y0_,tf0_] plots the plus and cross polarization against each other";
+wfsdsgwplusplot::usage="wfsdsgwplusplot[p0_,e0_,y0_,tf0_] plots the plus polarization against a reference 0pN waveform ";
+wfsdsgwcrossplot::usage="wfsdsgwcrossplot[p0_,e0_,y0_,tf0_] plots the cross polarization against a reference 0pN waveform";
 p::usage="semilatus rectum evolution"
 e::usage="eccentricity evolution"
 f::usage="true anomaly evolution"
@@ -43,6 +43,7 @@ yInit=y;
 NDSolve[{p'[t]==pdot[p[t],e[t],y],e'[t]==edot[p[t],e[t],y],f'[t]==fdot[p[t],e[t],f[t],y],\[Delta]'[t]==deldot[p[t],e[t],f[t],y],f[0]==0,e[0]==eInit,p[0]==pInit,\[Delta][0]==0, WhenEvent[p[t]==6+2e[t],"StopIntegration"](*stop at near separatrix*)},{p,e,f,\[Delta]},{t,0,10^6(*cycles*)}][[1]]];
 
 (*hplus and hcross*)
+
 hplus[x0_]:=Evaluate[D[xpos[t]^2-ypos[t]^2,{t,2}]]/.t->x0
 hcross[x0_]:=Evaluate[D[2xpos[t]ypos[t],{t,2}]]/.t->x0
 hplusSdS[y_,x0_]:=Evaluate[D[xpos[t]^2-ypos[t]^2,{t,2}]]+2Sqrt[y]D[xpos[t]^2-ypos[t]^2,{t,1}]/.t->x0
