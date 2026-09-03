@@ -4,7 +4,7 @@ Contains infrastructure in Mathematica generating GW waveforms, and orbital traj
 # Extreme-Mass Ratio Inspirals in Schwarzschild-de Sitter Spacetimes (Weak-field)
 
 **Author:** John Adrian Villanueva (University of the Philippines Diliman)  
-**Associated Paper:**(https://doi.org/10.1103/npk4-61t8)
+**Associated Paper:** (https://doi.org/10.1103/npk4-61t8)
 
 ## Overview
 This repository contains the Mathematica infrastructure used to compute weak-field orbital dynamics and extract gravitational waveforms for extreme-mass ratio inspirals (EMRIs) in Schwarzschild-de Sitter backgrounds. 
@@ -12,7 +12,6 @@ This repository contains the Mathematica infrastructure used to compute weak-fie
 By modeling the effects of the cosmological constant on EMRI trajectories, this code provides a framework for analyzing environmental perturbations relevant to the upcoming LISA mission.
 
 ## Key Features
-* **Conservative Dynamics:** Exact analytical implementation of SdS metric onto conservative geodesics of test particles.
 * **Trajectory Integration:** Highly optimized `NDSolve` routines capable of tracking orbital phase evolution.
 * **Waveform Extraction:** Modules to compute and visualize the resulting gravitational wave strain.
 
@@ -25,4 +24,4 @@ By modeling the effects of the cosmological constant on EMRI trajectories, this 
 ## How to Run
 1. Clone this repository to your local machine.
 2. Open the desired notebook in `/notebooks` using Mathematica 12.0 or later.
-3. The code is structured to be self-contained. Simply evaluate the initialization cells to load the spacetime parameters and run the integration sequence.
+3. The code is structured to be self-contained. Simply evaluate the initialization cells to load the parameters or pull up the package (located in the source folders) and run the integration and plotting sequences.
